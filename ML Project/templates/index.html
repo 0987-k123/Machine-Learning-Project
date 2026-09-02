@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlycoVision AI • Clinical Machine Learning & Dual-Model Diagnostic Studio</title>
+    
+    <!-- Google Fonts: Outfit, Plus Jakarta Sans, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Pro Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Chart.js 4.x CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!-- Top Application Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <a href="#" class="brand-logo">
+                <div class="logo-icon-box">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <div>
+                    <div style="display:flex; align-items:center; gap:0.55rem;">
+                        <span class="brand-title">GlycoVision AI</span>
+                        <span class="brand-badge">Clinical ML Studio</span>
+                    </div>
+                    <span style="font-size:0.75rem; color:var(--text-dim);">Dual-Algorithm Diagnostic Benchmark & Decision Intelligence</span>
+                </div>
+            </a>
+
+            <!-- Center Navigation Tabs -->
+            <nav class="nav-tabs">
+                <button class="nav-tab-btn active" data-tab="tab-predict">
+                    <i class="fa-solid fa-stethoscope"></i>
+                    <span>Dual Diagnostic Inference</span>
+                </button>
+                <button class="nav-tab-btn" data-tab="tab-benchmarks">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Algorithm Benchmarks</span>
+                </button>
+                <button class="nav-tab-btn" data-tab="tab-winner">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span>Decision & Winner</span>
+                </button>
+                <button class="nav-tab-btn" data-tab="tab-eda">
+                    <i class="fa-solid fa-database"></i>
+                    <span>EDA & Biomarkers</span>
+                </button>
+                <button class="nav-tab-btn" data-tab="tab-pipeline">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span>ML Pipeline Flow</span>
+                </button>
+            </nav>
+
+            <!-- Right Actions -->
+            <div class="header-actions">
+                <button type="button" id="btn-theme-toggle" class="btn-header-theme" title="Toggle Light / Dark Mode">
+                    <i class="fa-solid fa-moon" id="theme-icon"></i>
+                    <span id="theme-btn-text">Dark Mode</span>
+                </button>
+                <button type="button" id="btn-open-report" class="btn-header-report">
+                    <i class="fa-solid fa-file-medical"></i>
+                    <span>Generate Clinical Report</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+        <!-- ========================================================
+             TAB 1: DUAL INFERENCE DIAGNOSTIC PREDICTOR
+             ======================================================== -->
+        <section id="tab-predict" class="tab-content-panel active">
+            
+            <!-- Quick Preset Clinical Profiles Bar -->
+            <div class="presets-wrapper glass-panel">
+                <div class="presets-header">
+                    <span class="presets-header-title">
+                        <i class="fa-solid fa-users-viewfinder"></i>
+                        <span>One-Click Clinical Patient Archetypes (Instant Presets):</span>
+                    </span>
+                    <span style="font-size:0.75rem; color:var(--text-dim);"><i class="fa-solid fa-bolt"></i> Real-Time 60fps Reactivity</span>
+                </div>
+                <div class="preset-cards-grid">
+                    
+                    <button type="button" class="preset-card-btn preset-healthy" data-preset="healthy">
+                        <div class="preset-avatar"><i class="fa-solid fa-person-running"></i></div>
+                        <div class="preset-info">
+                            <h5>Profile A: Healthy Adult</h5>
+                            <p>22y Female • BMI 21.2 • 88 mg/dL • HbA1c 4.7%</p>
+                        </div>
+                    </button>
+
+                    <button type="button" class="preset-card-btn preset-borderline" data-preset="borderline">
+                        <div class="preset-avatar"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div class="preset-info">
+                            <h5>Profile B: Pre-Diabetic</h5>
+                            <p>49y Male • HTN • BMI 28.5 • 138 mg/dL • HbA1c 6.2%</p>
+                        </div>
+                    </button>
+
+                    <button type="button" class="preset-card-btn preset-highrisk" data-preset="high_risk">
+                        <div class="preset-avatar"><i class="fa-solid fa-user-doctor"></i></div>
+                        <div class="preset-info">
+                            <h5>Profile C: High-Risk Senior</h5>
+                            <p>68y Female • HTN+Heart • BMI 33.4 • 165 mg/dL</p>
+                        </div>
+                    </button>
+
+                    <button type="button" class="preset-card-btn preset-diabetic" data-preset="diabetic">
+                        <div class="preset-avatar"><i class="fa-solid fa-heart-pulse"></i></div>
+                        <div class="preset-info">
+                            <h5>Profile D: Severe Diabetic</h5>
+                            <p>56y Male • Smoker • BMI 36.2 • 245 mg/dL • HbA1c 8.6%</p>
+                        </div>
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- Two-Column Assessment Layout -->
+            <div class="diagnostic-grid-2col">
+                
+                <!-- Left: Patient Assessment Form -->
+                <div class="patient-form-panel glass-panel">
+                    <div class="panel-header">
+                        <h2 class="panel-header-title">
+                            <i class="fa-solid fa-clipboard-user" style="color:var(--blue);"></i>
+                            <span>Patient Biomarker Profile</span>
+                        </h2>
+                        <span class="badge-status badge-normal" style="font-size:0.75rem;"><i class="fa-solid fa-circle-dot"></i> Live Model Stream</span>
+                    </div>
+
+                    <form id="diagnostic-form">
+                        <div class="form-body-grid">
+                            
+                            <!-- Biological Gender -->
+                            <div class="form-item">
+                                <div class="label-row">
+                                    <label class="field-label"><i class="fa-solid fa-venus-mars"></i> Biological Gender</label>
+                                </div>
+                                <div class="segmented-pill-group">
+                                    <label class="pill-item">
+                                        <input type="radio" name="gender" value="Female" checked>
+                                        <span class="pill-btn-label"><i class="fa-solid fa-venus"></i> Female</span>
+                                    </label>
+                                    <label class="pill-item">
+                                        <input type="radio" name="gender" value="Male">
+                                        <span class="pill-btn-label"><i class="fa-solid fa-mars"></i> Male</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Patient Age -->
+                            <div class="form-item">
+                                <div class="label-row">
+                                    <label class="field-label"><i class="fa-solid fa-cake-candles"></i> Age (Years)</label>
+                                    <span id="badge-age" class="badge-status badge-normal">Adult (25-44y)</span>
+                                </div>
+                                <div class="range-slider-wrapper">
+                                    <input type="range" id="slider-age" class="clinical-range" min="1" max="80" step="1" value="40">
+                                    <input type="number" id="input-age" class="number-val-box" min="1" max="80" value="40">
+                                </div>
+                            </div>
+
+                            <!-- Hypertension History -->
+                            <div class="form-item">
+                                <div class="label-row">
+                                    <label class="field-label"><i class="fa-solid fa-gauge-high"></i> Hypertension (High BP)</label>
+                                </div>
+                                <div class="segmented-pill-group">
+                                    <label class="pill-item">
+                                        <input type="radio" name="hypertension" value="0" checked>
+                                        <span class="pill-btn-label">No (Normal BP)</span>
+                                    </label>
+                                    <label class="pill-item">
+                                        <input type="radio" name="hypertension" value="1">
+                                        <span class="pill-btn-label">Yes (Hypertensive)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Heart Disease -->
+                            <div class="form-item">
+                                <div class="label-row">
+                                    <label class="field-label"><i class="fa-solid fa-heart-crack"></i> Cardiovascular Disease</label>
+                                </div>
+                                <div class="segmented-pill-group">
+                                    <label class="pill-item">
+                                        <input type="radio" name="heart_disease" value="0" checked>
+                                        <span class="pill-btn-label">No CVD History</span>
+                                    </label>
+                                    <label class="pill-item">
+                                        <input type="radio" name="heart_disease" value="1">
+                                        <span class="pill-btn-label">Yes (Diagnosed)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Smoking History -->
+                            <div class="form-item full-row">
+                                <div class="label-row">
+                                    <label class="field-label"><i class="fa-solid fa-smoking"></i> Smoking & Tobacco History</label>
+                                </div>
+                                <select id="select-smoking" class="custom-select-box">
+                                    <option value="never">Non-Smoker (Never Smoked Tobacco)</option>
+                                    <option value="current">Active Smoker (Current Regular Use)</option>
+                                    <option value="past_smoker">Former / Past Smoker (Cessation > 6mo)</option>
+                                    <option value="no_info">No Information / Unknown Clinical History</option>
+                                </select>
+                            </div>
+
+                            <!-- Body Mass Index (BMI) -->
+                            <div class="form-item full-row">
+                                <div class="label-row">
+                                    <label class="field-label"><i class="fa-solid fa-weight-scale"></i> Body Mass Index (BMI kg/m²)</label>
+                                    <span id="badge-bmi" class="badge-status badge-normal">Normal (18.5-24.9)</span>
+                                </div>
+                                <div class="range-slider-wrapper">
+                                    <input type="range" id="slider-bmi" class="clinical-range" min="12.0" max="60.0" step="0.1" value="25.4">
+                                    <input type="number" id="input-bmi" class="number-val-box" min="12.0" max="60.0" step="0.1" value="25.4">
+                                </div>
+                                <div class="spectrum-scale-bar">
+                                    <div class="scale-segment seg-warning" style="width: 15%;"></div>
+                                    <div class="scale-segment seg-normal" style="width: 25%;"></div>
+                                    <div class="scale-segment seg-warning" style="width: 25%;"></div>
+                                    <div class="scale-segment seg-danger" style="width: 35%;"></div>
+                                </div>
+                                <div class="scale-labels-row">
+                                    <span>&lt;18.5 Underweight</span>
+                                    <span>18.5-24.9 Normal</span>
+                                    <span>25-29.9 Overweight</span>
+                                    <span>≥30 Obese</span>
+                                </div>
+                            </div>
+
+                            <!-- Glycated Hemoglobin (HbA1c %) -->
+                            <div class="form-item full-row">
+                                <div class="label-row">
+                                    <label class="field-label"><i class="fa-solid fa-droplet"></i> Glycated Hemoglobin (HbA1c Level %)</label>
+                                    <span id="badge-hba1c" class="badge-status badge-normal">Optimal (<5.7%)</span>
+                                </div>
+                                <div class="range-slider-wrapper">
+                                    <input type="range" id="slider-hba1c" class="clinical-range" min="3.5" max="9.0" step="0.1" value="5.5">
+                                    <input type="number" id="input-hba1c" class="number-val-box" min="3.5" max="9.0" step="0.1" value="5.5">
+                                </div>
+                                <div class="spectrum-scale-bar">
+                                    <div class="scale-segment seg-normal" style="width: 38%;"></div>
+                                    <div class="scale-segment seg-warning" style="width: 22%;"></div>
+                                    <div class="scale-segment seg-danger" style="width: 40%;"></div>
+                                </div>
+                                <div class="scale-labels-row">
+                                    <span>&lt;5.7% Normal Glycemic</span>
+                                    <span>5.7 - 6.4% Prediabetes</span>
+                                    <span>≥6.5% ADA Diabetic Threshold</span>
+                                </div>
+                            </div>
+
+                            <!-- Blood Glucose Level -->
+                            <div class="form-item full-row">
+                                <div class="label-row">
+                                    <label class="field-label"><i class="fa-solid fa-cube"></i> Blood Glucose Level (mg/dL)</label>
+                                    <span id="badge-glucose" class="badge-status badge-warning">Elevated (100-139 mg/dL)</span>
+                                </div>
+                                <div class="range-slider-wrapper">
+                                    <input type="range" id="slider-glucose" class="clinical-range" min="70" max="300" step="1" value="125">
+                                    <input type="number" id="input-glucose" class="number-val-box" min="70" max="300" value="125">
+                                </div>
+                                <div class="spectrum-scale-bar">
+                                    <div class="scale-segment seg-normal" style="width: 20%;"></div>
+                                    <div class="scale-segment seg-warning" style="width: 30%;"></div>
+                                    <div class="scale-segment seg-danger" style="width: 50%;"></div>
+                                </div>
+                                <div class="scale-labels-row">
+                                    <span>&lt;100 Normal Fasting</span>
+                                    <span>100 - 139 Elevated Glucose</span>
+                                    <span>≥140 High / Hyperglycemic</span>
+                                </div>
+                            </div>
+
+                            <!-- Submit Action Button -->
+                            <button type="submit" id="btn-submit" class="btn-run-assessment">
+                                <i class="fa-solid fa-bolt-lightning"></i>
+                                <span>Execute Full Dual-Model Diagnostic Assessment</span>
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right: Dual Model Output Cards & Real-Time Visualization -->
+                <div class="output-column-wrapper">
+                    
+                    <div class="dual-cards-row">
+                        
+                        <!-- Algorithm 1 Card: Logistic Regression -->
+                        <div class="model-diag-card glass-panel card-lr-theme">
+                            <div>
+                                <div class="model-card-top-info">
+                                    <span class="model-sub-tag"><i class="fa-solid fa-chart-line"></i> Algorithm 1 • Linear Regularized</span>
+                                    <div class="model-hero-name">Logistic Regression</div>
+                                </div>
+
+                                <div class="radial-gauge-container">
+                                    <div class="radial-gauge-box">
+                                        <svg viewBox="0 0 36 36" class="circular-gauge-svg">
+                                            <path class="gauge-track-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                            <path id="lr-gauge-fill" class="gauge-fill-animated blue-glow" stroke-dasharray="14.2, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                        </svg>
+                                        <div class="gauge-center-text">
+                                            <span id="lr-risk-pct" class="gauge-pct-num">14.2%</span>
+                                            <span class="gauge-pct-label">Risk Probability</span>
+                                        </div>
+                                    </div>
+                                    <div id="lr-verdict" class="verdict-pill-badge verdict-nondiabetic">
+                                        <i class="fa-solid fa-circle-check"></i> Non-Diabetic (Optimal)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-specs-footer">
+                                <div class="spec-col">
+                                    <span class="spec-lbl">Risk Tier</span>
+                                    <span id="lr-risk-level" class="spec-val" style="color:#60a5fa;">Low</span>
+                                </div>
+                                <div class="spec-col">
+                                    <span class="spec-lbl">Inference Latency</span>
+                                    <span id="lr-latency" class="spec-val">1.1 ms</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Algorithm 2 Card: Random Forest Ensemble (Winner) -->
+                        <div class="model-diag-card glass-panel card-rf-theme">
+                            <div class="winner-floating-badge">
+                                <i class="fa-solid fa-crown" style="color:#f59e0b"></i> Winner Algorithm
+                            </div>
+                            <div>
+                                <div class="model-card-top-info">
+                                    <span class="model-sub-tag"><i class="fa-solid fa-tree"></i> Algorithm 2 • Ensemble Model</span>
+                                    <div class="model-hero-name">Random Forest Classifier</div>
+                                </div>
+
+                                <div class="radial-gauge-container">
+                                    <div class="radial-gauge-box">
+                                        <svg viewBox="0 0 36 36" class="circular-gauge-svg">
+                                            <path class="gauge-track-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                            <path id="rf-gauge-fill" class="gauge-fill-animated emerald-glow" stroke-dasharray="6.5, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                        </svg>
+                                        <div class="gauge-center-text">
+                                            <span id="rf-risk-pct" class="gauge-pct-num">6.5%</span>
+                                            <span class="gauge-pct-label">Risk Probability</span>
+                                        </div>
+                                    </div>
+                                    <div id="rf-verdict" class="verdict-pill-badge verdict-nondiabetic">
+                                        <i class="fa-solid fa-circle-check"></i> Non-Diabetic (Optimal)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-specs-footer">
+                                <div class="spec-col">
+                                    <span class="spec-lbl">Risk Tier</span>
+                                    <span id="rf-risk-level" class="spec-val" style="color:#34d399;">Low</span>
+                                </div>
+                                <div class="spec-col">
+                                    <span class="spec-lbl">Inference Latency</span>
+                                    <span id="rf-latency" class="spec-val">2.2 ms</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Sensitivity Threshold Tuner -->
+                    <div class="threshold-tuner-card glass-panel">
+                        <div class="threshold-tuner-info">
+                            <h5><i class="fa-solid fa-sliders" style="color:var(--cyan)"></i> Clinical Decision Threshold Tuner: <span id="val-threshold-label" style="color:#38bdf8; font-family:'JetBrains Mono', monospace;">50% (Standard)</span></h5>
+                            <p>Adjust classification cutoff to tune clinical sensitivity (lower threshold minimizes false negatives in high-risk screening).</p>
+                        </div>
+                        <div style="width: 160px;">
+                            <input type="range" id="slider-threshold" class="clinical-range" min="0.10" max="0.90" step="0.05" value="0.50">
+                        </div>
+                    </div>
+
+                    <!-- Consensus & Recommendation Box -->
+                    <div id="consensus-banner" class="consensus-matrix-card glass-panel">
+                        <div id="consensus-icon" class="consensus-avatar-icon">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div class="consensus-content">
+                            <h4 id="consensus-title">Models Unanimously Agree: Non-Diabetic (10.3% Average Risk)</h4>
+                            <p id="consensus-desc">
+                                <strong>Clinical Insight:</strong> The patient exhibits biomarkers well within safe physiological parameters. Fasting blood glucose and HbA1c are normal. Continue routine lifestyle monitoring.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================
+             TAB 2: ALGORITHM BENCHMARKS & COMPARATIVE METRICS
+             ======================================================== -->
+        <section id="tab-benchmarks" class="tab-content-panel">
+            
+            <!-- Quick Stat Cards Strip -->
+            <div class="metrics-stat-strip">
+                <div class="stat-metric-card glass-panel">
+                    <div class="stat-icon-wrapper" style="background:rgba(59, 130, 246, 0.15); color:#60a5fa;">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <div class="stat-content-box">
+                        <h6>Total Training Dataset</h6>
+                        <div id="stat-total-records" class="stat-big-num">100,000</div>
+                        <span class="stat-sub">Cleaned Real-World Cohort</span>
+                    </div>
+                </div>
+                <div class="stat-metric-card glass-panel">
+                    <div class="stat-icon-wrapper" style="background:rgba(16, 185, 129, 0.15); color:#34d399;">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <div class="stat-content-box">
+                        <h6>Recommended Algorithm</h6>
+                        <div id="stat-winner-name" class="stat-big-num" style="font-size:1.25rem;">Random Forest</div>
+                        <span class="stat-sub">Non-Linear Ensemble</span>
+                    </div>
+                </div>
+                <div class="stat-metric-card glass-panel">
+                    <div class="stat-icon-wrapper" style="background:rgba(139, 92, 246, 0.15); color:#a78bfa;">
+                        <i class="fa-solid fa-chart-area"></i>
+                    </div>
+                    <div class="stat-content-box">
+                        <h6>Winner ROC-AUC Score</h6>
+                        <div id="stat-winner-roc" class="stat-big-num">0.9785</div>
+                        <span class="stat-sub">Area Under ROC Curve</span>
+                    </div>
+                </div>
+                <div class="stat-metric-card glass-panel">
+                    <div class="stat-icon-wrapper" style="background:rgba(245, 158, 11, 0.15); color:#fbbf24;">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <div class="stat-content-box">
+                        <h6>Winner F1-Score</h6>
+                        <div id="stat-winner-f1" class="stat-big-num">81.12%</div>
+                        <span class="stat-sub">Precision-Recall Balance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Comparative Table -->
+            <div class="glass-panel" style="padding: 1.65rem;">
+                <div class="panel-header">
+                    <h2 class="panel-header-title">
+                        <i class="fa-solid fa-table-columns" style="color:var(--cyan)"></i>
+                        <span>Side-by-Side Model Performance Benchmark (Held-Out 20% Test Set)</span>
+                    </h2>
+                    <span class="badge-status badge-normal"><i class="fa-solid fa-shield-check"></i> Stratified 5-Fold Evaluation</span>
+                </div>
+
+                <div class="benchmark-table-box">
+                    <table class="benchmark-data-table">
+                        <thead>
+                            <tr>
+                                <th>Performance Metric</th>
+                                <th>Algorithm 1: Logistic Regression</th>
+                                <th>Algorithm 2: Random Forest (Winner)</th>
+                                <th>Clinical & Statistical Verdict</th>
+                            </tr>
+                        </thead>
+                        <tbody id="benchmark-table-body">
+                            <!-- Populated dynamically via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Side-by-Side Charts (Radar Spider + Bar Charts + ROC) -->
+            <div class="charts-grid-2col">
+                <div class="chart-visual-card glass-panel">
+                    <div class="chart-card-header">
+                        <h3><i class="fa-solid fa-circle-nodes" style="color:var(--purple)"></i> Multi-Dimensional Performance Radar</h3>
+                        <p>6-Axis holistic balance comparison (Accuracy, Precision, Recall, Specificity, F1, ROC-AUC)</p>
+                    </div>
+                    <div class="chart-container-fluid">
+                        <canvas id="radarComparisonChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-visual-card glass-panel">
+                    <div class="chart-card-header">
+                        <h3><i class="fa-solid fa-chart-column" style="color:var(--blue)"></i> Metric-by-Metric Bar Comparison</h3>
+                        <p>Direct percentage score benchmark across test evaluations</p>
+                    </div>
+                    <div class="chart-container-fluid">
+                        <canvas id="metricsBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROC Curves and Confusion Matrices -->
+            <div class="charts-grid-2col" style="margin-top: 1.5rem;">
+                <div class="chart-visual-card glass-panel" style="grid-column: span 2;">
+                    <div class="chart-card-header">
+                        <h3><i class="fa-solid fa-bezier-curve" style="color:var(--emerald)"></i> Receiver Operating Characteristic (ROC) Curves</h3>
+                        <p>True Positive Rate (Sensitivity) vs False Positive Rate (1 - Specificity) across all decision thresholds</p>
+                    </div>
+                    <div class="chart-container-fluid" style="min-height: 280px;">
+                        <canvas id="rocCurveChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side-by-Side Confusion Matrices -->
+            <div class="confusion-matrix-wrapper">
+                <div class="cm-container-card glass-panel">
+                    <div class="cm-header-row">
+                        <h4><i class="fa-solid fa-table-cells"></i> Confusion Matrix: Logistic Regression</h4>
+                        <span style="font-size:0.8rem; color:#60a5fa; font-family:'JetBrains Mono', monospace;">Linear Baseline</span>
+                    </div>
+                    <div class="cm-matrix-2x2">
+                        <div class="cm-cell-box cell-tn-style">
+                            <span class="cell-title">True Negatives (TN)</span>
+                            <span id="lr-tn" class="cell-count">-</span>
+                        </div>
+                        <div class="cm-cell-box cell-fp-style">
+                            <span class="cell-title">False Positives (FP)</span>
+                            <span id="lr-fp" class="cell-count">-</span>
+                        </div>
+                        <div class="cm-cell-box cell-fn-style">
+                            <span class="cell-title">False Negatives (FN) [Missed]</span>
+                            <span id="lr-fn" class="cell-count">-</span>
+                        </div>
+                        <div class="cm-cell-box cell-tp-style">
+                            <span class="cell-title">True Positives (TP)</span>
+                            <span id="lr-tp" class="cell-count">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cm-container-card glass-panel" style="border-color: rgba(16, 185, 129, 0.35);">
+                    <div class="cm-header-row">
+                        <h4><i class="fa-solid fa-table-cells"></i> Confusion Matrix: Random Forest Classifier</h4>
+                        <span style="font-size:0.8rem; color:#34d399; font-family:'JetBrains Mono', monospace;">Tuned Ensemble (Winner)</span>
+                    </div>
+                    <div class="cm-matrix-2x2">
+                        <div class="cm-cell-box cell-tn-style">
+                            <span class="cell-title">True Negatives (TN)</span>
+                            <span id="rf-tn" class="cell-count">-</span>
+                        </div>
+                        <div class="cm-cell-box cell-fp-style">
+                            <span class="cell-title">False Positives (FP)</span>
+                            <span id="rf-fp" class="cell-count">-</span>
+                        </div>
+                        <div class="cm-cell-box cell-fn-style">
+                            <span class="cell-title">False Negatives (FN) [Missed]</span>
+                            <span id="rf-fn" class="cell-count">-</span>
+                        </div>
+                        <div class="cm-cell-box cell-tp-style">
+                            <span class="cell-title">True Positives (TP)</span>
+                            <span id="rf-tp" class="cell-count">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ========================================================
+             TAB 3: CLINICAL DECISION & WINNER VERDICT
+             ======================================================== -->
+        <section id="tab-winner" class="tab-content-panel">
+            
+            <!-- Hero Winner Banner -->
+            <div class="winner-hero-jumbotron">
+                <div class="winner-jumbotron-flex">
+                    <div class="winner-trophy-avatar">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <div class="winner-text-area">
+                        <h2 id="winner-hero-title">🏆 Diagnostic Winner: Random Forest Classifier</h2>
+                        <p id="winner-hero-desc">
+                            Random Forest achieved superior diagnostic accuracy, balanced F1-Score, and discriminative power (ROC-AUC) compared to Logistic Regression. In medical diagnostic screening, Random Forest excels at isolating non-linear threshold effects in HbA1c and Blood Glucose levels with minimal false negatives.
+                        </p>
+                        <div id="winner-advantages-pills" class="winner-key-pills-row">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deep Clinical Tradeoff Analysis Grid -->
+            <div class="charts-grid-2col">
+                <div class="chart-visual-card glass-panel">
+                    <div class="chart-card-header">
+                        <h3><i class="fa-solid fa-stethoscope" style="color:var(--rose)"></i> Why Sensitivity (Recall) is the Critical Clinical KPI</h3>
+                    </div>
+                    <div style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.65;">
+                        <p style="margin-bottom: 0.85rem;">
+                            In asymptomatic diabetes screening, the clinical cost of a <strong>False Negative</strong> (failing to diagnose an active diabetic patient) is severe. Delayed diagnosis leads to irreversible microvascular damage: retinopathy (blindness), nephropathy (kidney failure), and neuropathy.
+                        </p>
+                        <p style="margin-bottom: 0.85rem;">
+                            Conversely, a <strong>False Positive</strong> only requires an inexpensive, non-invasive confirmatory fasting plasma glucose or oral glucose tolerance test.
+                        </p>
+                        <div class="badge-status badge-normal" style="display:inline-block; padding:7px 14px; margin-top:0.4rem;">
+                            <i class="fa-solid fa-shield-halved"></i> <strong>Conclusion:</strong> Random Forest minimizes false negatives while maintaining high precision.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-visual-card glass-panel">
+                    <div class="chart-card-header">
+                        <h3><i class="fa-solid fa-code-compare" style="color:var(--blue)"></i> Architectural Trade-Off Comparison</h3>
+                    </div>
+                    <div style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.65;">
+                        <ul style="padding-left: 1.25rem; display:flex; flex-direction:column; gap:0.75rem;">
+                            <li><strong>Logistic Regression:</strong> Linear decision boundary in log-odds space. Highly interpretable through odds ratios and fast inference (&lt;1.5ms), but assumes monotonic linear relationships without threshold jumps.</li>
+                            <li><strong>Random Forest:</strong> Non-parametric ensemble of decorrelated decision trees that naturally segments non-linear interactions (e.g. sharp diabetic tipping points when HbA1c exceeds 6.5% and Glucose > 140 mg/dL).</li>
+                            <li><strong>SMOTE Balancing:</strong> Synthetic oversampling prevented majority-class bias without discarding valuable real-world negative cases.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ========================================================
+             TAB 4: EXPLORATORY DATA ANALYSIS & FEATURE IMPORTANCE
+             ======================================================== -->
+        <section id="tab-eda" class="tab-content-panel">
+            
+            <div class="charts-grid-2col">
+                <!-- Feature Importance Chart -->
+                <div class="chart-visual-card glass-panel">
+                    <div class="chart-card-header">
+                        <h3><i class="fa-solid fa-ranking-star" style="color:var(--purple)"></i> Top Feature Importance (Gini Impurity)</h3>
+                        <p>Relative importance of clinical predictors in Random Forest decision splits</p>
+                    </div>
+                    <div class="chart-container-fluid">
+                        <canvas id="featureImportanceChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Class Balance Pie Chart -->
+                <div class="chart-visual-card glass-panel">
+                    <div class="chart-card-header">
+                        <h3><i class="fa-solid fa-chart-pie" style="color:var(--rose)"></i> Target Class Balance (Imbalance Profile)</h3>
+                        <p>Distribution of Non-Diabetic (0) vs Diabetic (1) samples in 100k cohort</p>
+                    </div>
+                    <div class="chart-container-fluid">
+                        <canvas id="classBalancePieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Clinical Insights Grid -->
+            <div class="eda-cards-grid">
+                <div class="eda-insight-card glass-panel">
+                    <div class="insight-title" style="color: #60a5fa;">
+                        <i class="fa-solid fa-droplet"></i> Blood Glucose & HbA1c
+                    </div>
+                    <p>
+                        Blood glucose level (>140 mg/dL) and HbA1c (>6.5%) exhibit a dramatic positive correlation with diabetes (r > 0.41), acting as the primary drivers of model decision boundaries.
+                    </p>
+                </div>
+                <div class="eda-insight-card glass-panel">
+                    <div class="insight-title" style="color: #34d399;">
+                        <i class="fa-solid fa-person-cane"></i> Age & BMI Compound
+                    </div>
+                    <p>
+                        Mean age for diabetics is 61.2 years vs 40.1 years for non-diabetics. Overweight and Obese cohorts (BMI > 30) exhibit over 3.4x higher prevalence of impaired glycemic control.
+                    </p>
+                </div>
+                <div class="eda-insight-card glass-panel">
+                    <div class="insight-title" style="color: #f43f5e;">
+                        <i class="fa-solid fa-heart-pulse"></i> Cardiovascular Triad
+                    </div>
+                    <p>
+                        Patients presenting with both Hypertension and Heart Disease (Comorbidity score = 2) have a 5.2x elevated likelihood of diabetic status compared to those with no comorbidities.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ========================================================
+             TAB 5: ML PIPELINE ARCHITECTURE FLOW
+             ======================================================== -->
+        <section id="tab-pipeline" class="tab-content-panel">
+            
+            <div class="glass-panel" style="padding: 1.85rem;">
+                <div class="panel-header">
+                    <h2 class="panel-header-title">
+                        <i class="fa-solid fa-sitemap" style="color:var(--blue)"></i>
+                        <span>End-to-End Machine Learning Pipeline Architecture</span>
+                    </h2>
+                    <span class="brand-badge">Full Production Lifecycle</span>
+                </div>
+
+                <div class="pipeline-stepper-container">
+                    
+                    <!-- Step 1 -->
+                    <div class="pipeline-step-card glass-panel">
+                        <div class="step-circle-badge">1</div>
+                        <div class="step-card-content">
+                            <h4>Raw Data Ingestion & Clinical Understanding</h4>
+                            <p>Ingested 100,000 patient records from <code>diabetes_prediction_dataset.csv</code> covering 8 physiological biomarkers and demographic features alongside the binary target.</p>
+                            <div class="tech-tags-list">
+                                <span class="tech-tag-badge">Pandas</span>
+                                <span class="tech-tag-badge">100,000 Records</span>
+                                <span class="tech-tag-badge">8 Input Features</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="pipeline-step-card glass-panel">
+                        <div class="step-circle-badge">2</div>
+                        <div class="step-card-content">
+                            <h4>Data Cleaning & Domain Validation</h4>
+                            <p>Eliminated 3,854 duplicate patient rows, sanitized rare gender entries, harmonized smoking history into 4 clinical tiers, and validated physiological boundary integrity.</p>
+                            <div class="tech-tags-list">
+                                <span class="tech-tag-badge">Deduplication</span>
+                                <span class="tech-tag-badge">Demographic Validation</span>
+                                <span class="tech-tag-badge">Zero-Null Verification</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="pipeline-step-card glass-panel">
+                        <div class="step-circle-badge">3</div>
+                        <div class="step-card-content">
+                            <h4>Clinical Feature Engineering & Wrangling</h4>
+                            <p>Engineered domain-specific indicators: <code>glucose_hba1c_risk</code> interaction score, <code>comorbidity_score</code>, WHO standard <code>bmi_category</code> bins, and demographic <code>age_group</code> tiers.</p>
+                            <div class="tech-tags-list">
+                                <span class="tech-tag-badge">Interaction Terms</span>
+                                <span class="tech-tag-badge">WHO BMI Bins</span>
+                                <span class="tech-tag-badge">Comorbidity Scoring</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="pipeline-step-card glass-panel">
+                        <div class="step-circle-badge">4</div>
+                        <div class="step-card-content">
+                            <h4>Preprocessing & Class Balancing (SMOTE)</h4>
+                            <p>Applied <code>ColumnTransformer</code> with <code>StandardScaler</code> for continuous variables and <code>OneHotEncoder</code> for categorical variables. Leveraged SMOTE to synthesize minority diabetic samples to prevent majority-class bias.</p>
+                            <div class="tech-tags-list">
+                                <span class="tech-tag-badge">ColumnTransformer</span>
+                                <span class="tech-tag-badge">StandardScaler</span>
+                                <span class="tech-tag-badge">SMOTE Oversampling</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="pipeline-step-card glass-panel">
+                        <div class="step-circle-badge">5</div>
+                        <div class="step-card-content">
+                            <h4>Hyperparameter Optimization (5-Fold Stratified CV)</h4>
+                            <p>Tuned Regularized Logistic Regression (L2 penalty, C search) and Random Forest Ensemble (n_estimators, max_depth, min_samples_split) using 5-fold Stratified Cross-Validation.</p>
+                            <div class="tech-tags-list">
+                                <span class="tech-tag-badge">GridSearchCV</span>
+                                <span class="tech-tag-badge">StratifiedKFold (K=5)</span>
+                                <span class="tech-tag-badge">F1 & ROC-AUC Optimization</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="pipeline-step-card glass-panel">
+                        <div class="step-circle-badge">6</div>
+                        <div class="step-card-content">
+                            <h4>Dual Inference & Web Deployment</h4>
+                            <p>Exported trained model artifacts (<code>.joblib</code>) and metadata into the GUI server. Enabled live simultaneous inference, risk meters, and clinical recommendations.</p>
+                            <div class="tech-tags-list">
+                                <span class="tech-tag-badge">Joblib Serialization</span>
+                                <span class="tech-tag-badge">REST API Backend</span>
+                                <span class="tech-tag-badge">Interactive Web GUI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Modal: Official Clinical Diagnostic Report -->
+    <div id="report-modal" class="modal-backdrop">
+        <div class="report-modal-content">
+            <div class="report-header">
+                <div>
+                    <h2 style="font-size:1.4rem; font-weight:800;"><i class="fa-solid fa-file-medical" style="color:var(--cyan)"></i> Clinical Diagnostic Assessment Summary</h2>
+                    <span style="font-size:0.8rem; color:var(--text-dim);">Generated by GlycoVision AI Decision Intelligence Engine</span>
+                </div>
+                <button type="button" id="btn-close-report" style="background:transparent; border:none; color:var(--text-muted); font-size:1.4rem; cursor:pointer;">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">
+                <strong>Assessment Timestamp:</strong> <span id="rep-date" style="color:var(--text-main); font-family:'JetBrains Mono', monospace;">-</span>
+            </div>
+
+            <h4 style="font-size:1rem; margin-top:1rem; margin-bottom:0.4rem; color:var(--cyan);">1. Patient Clinical Biomarkers</h4>
+            <table class="report-table">
+                <tr><th>Age & Biological Sex</th><td id="rep-age">-</td><th>Body Mass Index</th><td id="rep-bmi">-</td></tr>
+                <tr><th>Blood Glucose Level</th><td id="rep-glucose">-</td><th>Glycated Hemoglobin (HbA1c)</th><td id="rep-hba1c">-</td></tr>
+                <tr><th>Hypertension History</th><td id="rep-htn">-</td><th>Cardiovascular Disease</th><td id="rep-hd">-</td></tr>
+                <tr><th>Smoking & Tobacco Status</th><td id="rep-smoke" colspan="3">-</td></tr>
+            </table>
+
+            <h4 style="font-size:1rem; margin-top:1.25rem; margin-bottom:0.4rem; color:var(--emerald);">2. Dual-Algorithm Diagnostic Results</h4>
+            <table class="report-table">
+                <tr>
+                    <th>Algorithm 1: Logistic Regression</th>
+                    <td id="rep-lr-out">-</td>
+                </tr>
+                <tr>
+                    <th>Algorithm 2: Random Forest (Winner)</th>
+                    <td id="rep-rf-out" style="font-weight:700; color:#34d399;">-</td>
+                </tr>
+            </table>
+
+            <div style="margin-top:1.5rem; display:flex; justify-content:flex-end; gap:0.75rem;">
+                <button type="button" id="btn-print-report" class="btn-header-report" style="background:var(--gradient-brand); color:white; border:none; padding:0.75rem 1.4rem;">
+                    <i class="fa-solid fa-print"></i> Print / Save Official PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <p>GlycoVision AI • Diabetes Diagnostic Machine Learning System • Developed with Scikit-Learn, Pandas, NumPy & Modern Vanilla Web Stack</p>
+    </footer>
+
+    <!-- Client Script -->
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

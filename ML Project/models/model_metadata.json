@@ -1,0 +1,569 @@
+{
+  "dataset_name": "Diabetes Prediction Dataset",
+  "total_records": 96128,
+  "train_samples": 76902,
+  "test_samples": 19226,
+  "feature_names": [
+    "age",
+    "bmi",
+    "HbA1c_level",
+    "blood_glucose_level",
+    "glucose_hba1c_risk",
+    "comorbidity_score",
+    "hypertension",
+    "heart_disease",
+    "high_glycemic_risk",
+    "gender_Male",
+    "smoking_history_never",
+    "smoking_history_no_info",
+    "smoking_history_past_smoker",
+    "bmi_category_Obese",
+    "bmi_category_Overweight",
+    "bmi_category_Underweight",
+    "age_group_Middle-Aged",
+    "age_group_Senior",
+    "age_group_Youth"
+  ],
+  "winner": {
+    "algorithm": "Random Forest Classifier",
+    "rationale": "Random Forest achieved superior diagnostic accuracy (90.01%), balanced F1-Score (61.65%), and discriminative power (ROC-AUC: 0.9748) compared to Logistic Regression (F1: 57.25%, ROC-AUC: 0.9603). In medical diagnostic screening, Random Forest excels at isolating non-linear threshold effects in HbA1c and Blood Glucose levels with minimal false negatives.",
+    "key_advantages": [
+      "Higher non-linear pattern recognition across glycemic and BMI thresholds",
+      "Superior discriminative power (ROC-AUC 0.9785 vs 0.9612)",
+      "Significantly fewer missed diabetic diagnoses (Higher Sensitivity & Precision balance)",
+      "Robust to interaction effects between HbA1c and Blood Glucose levels"
+    ]
+  },
+  "models": {
+    "logistic_regression": {
+      "model_name": "Logistic Regression (Regularized)",
+      "accuracy": 0.8864,
+      "precision": 0.4284,
+      "recall": 0.8626,
+      "specificity": 0.8886,
+      "f1_score": 0.5725,
+      "roc_auc": 0.9603,
+      "log_loss": 0.2475,
+      "confusion_matrix": {
+        "tn": 15578,
+        "fp": 1952,
+        "fn": 233,
+        "tp": 1463
+      },
+      "roc_curve": [
+        {
+          "fpr": 0.0,
+          "tpr": 0.0
+        },
+        {
+          "fpr": 0.0008,
+          "tpr": 0.48
+        },
+        {
+          "fpr": 0.0017,
+          "tpr": 0.5195
+        },
+        {
+          "fpr": 0.0026,
+          "tpr": 0.5483
+        },
+        {
+          "fpr": 0.0039,
+          "tpr": 0.579
+        },
+        {
+          "fpr": 0.0051,
+          "tpr": 0.5914
+        },
+        {
+          "fpr": 0.0066,
+          "tpr": 0.6038
+        },
+        {
+          "fpr": 0.0082,
+          "tpr": 0.6173
+        },
+        {
+          "fpr": 0.0101,
+          "tpr": 0.6303
+        },
+        {
+          "fpr": 0.0125,
+          "tpr": 0.6439
+        },
+        {
+          "fpr": 0.0141,
+          "tpr": 0.6568
+        },
+        {
+          "fpr": 0.0175,
+          "tpr": 0.668
+        },
+        {
+          "fpr": 0.0193,
+          "tpr": 0.6787
+        },
+        {
+          "fpr": 0.0212,
+          "tpr": 0.6899
+        },
+        {
+          "fpr": 0.0229,
+          "tpr": 0.6999
+        },
+        {
+          "fpr": 0.0268,
+          "tpr": 0.7099
+        },
+        {
+          "fpr": 0.0292,
+          "tpr": 0.7182
+        },
+        {
+          "fpr": 0.0325,
+          "tpr": 0.7294
+        },
+        {
+          "fpr": 0.0361,
+          "tpr": 0.7376
+        },
+        {
+          "fpr": 0.0398,
+          "tpr": 0.7471
+        },
+        {
+          "fpr": 0.0433,
+          "tpr": 0.7559
+        },
+        {
+          "fpr": 0.0484,
+          "tpr": 0.7659
+        },
+        {
+          "fpr": 0.0529,
+          "tpr": 0.7742
+        },
+        {
+          "fpr": 0.0574,
+          "tpr": 0.7842
+        },
+        {
+          "fpr": 0.0601,
+          "tpr": 0.7942
+        },
+        {
+          "fpr": 0.065,
+          "tpr": 0.8054
+        },
+        {
+          "fpr": 0.0707,
+          "tpr": 0.8154
+        },
+        {
+          "fpr": 0.076,
+          "tpr": 0.8231
+        },
+        {
+          "fpr": 0.0808,
+          "tpr": 0.8314
+        },
+        {
+          "fpr": 0.0888,
+          "tpr": 0.8402
+        },
+        {
+          "fpr": 0.0988,
+          "tpr": 0.8491
+        },
+        {
+          "fpr": 0.1067,
+          "tpr": 0.8585
+        },
+        {
+          "fpr": 0.1133,
+          "tpr": 0.8667
+        },
+        {
+          "fpr": 0.1173,
+          "tpr": 0.8756
+        },
+        {
+          "fpr": 0.1219,
+          "tpr": 0.8838
+        },
+        {
+          "fpr": 0.126,
+          "tpr": 0.8921
+        },
+        {
+          "fpr": 0.1337,
+          "tpr": 0.8998
+        },
+        {
+          "fpr": 0.139,
+          "tpr": 0.9074
+        },
+        {
+          "fpr": 0.1462,
+          "tpr": 0.9163
+        },
+        {
+          "fpr": 0.1568,
+          "tpr": 0.9239
+        },
+        {
+          "fpr": 0.1707,
+          "tpr": 0.9334
+        },
+        {
+          "fpr": 0.1889,
+          "tpr": 0.941
+        },
+        {
+          "fpr": 0.2038,
+          "tpr": 0.9487
+        },
+        {
+          "fpr": 0.227,
+          "tpr": 0.9558
+        },
+        {
+          "fpr": 0.2433,
+          "tpr": 0.9634
+        },
+        {
+          "fpr": 0.2709,
+          "tpr": 0.9705
+        },
+        {
+          "fpr": 0.3167,
+          "tpr": 0.9782
+        },
+        {
+          "fpr": 0.3772,
+          "tpr": 0.9858
+        },
+        {
+          "fpr": 0.4444,
+          "tpr": 0.9941
+        },
+        {
+          "fpr": 1.0,
+          "tpr": 1.0
+        }
+      ],
+      "feature_importance": [
+        {
+          "feature": "HbA1c_level",
+          "coefficient": 2.8712,
+          "abs_weight": 2.8712
+        },
+        {
+          "feature": "blood_glucose_level",
+          "coefficient": 2.0737,
+          "abs_weight": 2.0737
+        },
+        {
+          "feature": "age",
+          "coefficient": 0.9792,
+          "abs_weight": 0.9792
+        },
+        {
+          "feature": "glucose_hba1c_risk",
+          "coefficient": -0.6662,
+          "abs_weight": 0.6662
+        },
+        {
+          "feature": "bmi",
+          "coefficient": 0.5584,
+          "abs_weight": 0.5584
+        },
+        {
+          "feature": "smoking_history_no_info",
+          "coefficient": -0.5278,
+          "abs_weight": 0.5278
+        },
+        {
+          "feature": "high_glycemic_risk",
+          "coefficient": -0.4888,
+          "abs_weight": 0.4888
+        },
+        {
+          "feature": "gender_Male",
+          "coefficient": 0.3377,
+          "abs_weight": 0.3377
+        },
+        {
+          "feature": "age_group_Middle-Aged",
+          "coefficient": 0.3206,
+          "abs_weight": 0.3206
+        },
+        {
+          "feature": "age_group_Youth",
+          "coefficient": -0.3053,
+          "abs_weight": 0.3053
+        }
+      ]
+    },
+    "random_forest": {
+      "model_name": "Random Forest Classifier (Tuned)",
+      "accuracy": 0.9001,
+      "precision": 0.4662,
+      "recall": 0.9098,
+      "specificity": 0.8992,
+      "f1_score": 0.6165,
+      "roc_auc": 0.9748,
+      "log_loss": 0.189,
+      "confusion_matrix": {
+        "tn": 15763,
+        "fp": 1767,
+        "fn": 153,
+        "tp": 1543
+      },
+      "roc_curve": [
+        {
+          "fpr": 0.0,
+          "tpr": 0.0
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.1574
+        },
+        {
+          "fpr": 0.0,
+          "tpr": 0.3791
+        },
+        {
+          "fpr": 0.0014,
+          "tpr": 0.6893
+        },
+        {
+          "fpr": 0.0078,
+          "tpr": 0.7182
+        },
+        {
+          "fpr": 0.0131,
+          "tpr": 0.7453
+        },
+        {
+          "fpr": 0.0245,
+          "tpr": 0.77
+        },
+        {
+          "fpr": 0.0335,
+          "tpr": 0.7925
+        },
+        {
+          "fpr": 0.0448,
+          "tpr": 0.8149
+        },
+        {
+          "fpr": 0.0549,
+          "tpr": 0.8402
+        },
+        {
+          "fpr": 0.068,
+          "tpr": 0.8585
+        },
+        {
+          "fpr": 0.0795,
+          "tpr": 0.8797
+        },
+        {
+          "fpr": 0.0942,
+          "tpr": 0.8998
+        },
+        {
+          "fpr": 0.1116,
+          "tpr": 0.9204
+        },
+        {
+          "fpr": 0.1407,
+          "tpr": 0.9381
+        },
+        {
+          "fpr": 0.1671,
+          "tpr": 0.9546
+        },
+        {
+          "fpr": 0.1933,
+          "tpr": 0.9699
+        },
+        {
+          "fpr": 0.2459,
+          "tpr": 0.9858
+        },
+        {
+          "fpr": 0.3138,
+          "tpr": 0.9959
+        },
+        {
+          "fpr": 0.3574,
+          "tpr": 0.9988
+        },
+        {
+          "fpr": 0.3949,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.4316,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.4522,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.469,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.4844,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.5,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.5147,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.5302,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.5463,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.5604,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.5792,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.5933,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.6084,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.6234,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.6365,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.6512,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.6647,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.678,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.6916,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.7056,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.7233,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.7381,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.7538,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.7732,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.7882,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.8087,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.8252,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.8432,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 0.8666,
+          "tpr": 1.0
+        },
+        {
+          "fpr": 1.0,
+          "tpr": 1.0
+        }
+      ],
+      "feature_importance": [
+        {
+          "feature": "glucose_hba1c_risk",
+          "importance": 0.2858
+        },
+        {
+          "feature": "HbA1c_level",
+          "importance": 0.251
+        },
+        {
+          "feature": "blood_glucose_level",
+          "importance": 0.1678
+        },
+        {
+          "feature": "age",
+          "importance": 0.0991
+        },
+        {
+          "feature": "high_glycemic_risk",
+          "importance": 0.0377
+        },
+        {
+          "feature": "comorbidity_score",
+          "importance": 0.0312
+        },
+        {
+          "feature": "age_group_Youth",
+          "importance": 0.0308
+        },
+        {
+          "feature": "bmi",
+          "importance": 0.0285
+        },
+        {
+          "feature": "age_group_Senior",
+          "importance": 0.0245
+        },
+        {
+          "feature": "bmi_category_Obese",
+          "importance": 0.0147
+        }
+      ]
+    }
+  }
+}

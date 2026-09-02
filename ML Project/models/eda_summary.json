@@ -1,0 +1,211 @@
+{
+  "class_balance": {
+    "negative_count": 87646,
+    "positive_count": 8482,
+    "negative_pct": 91.18,
+    "positive_pct": 8.82,
+    "total_samples": 96128
+  },
+  "correlations": {
+    "age": {
+      "age": 1.0,
+      "hypertension": 0.2573,
+      "heart_disease": 0.2384,
+      "bmi": 0.3448,
+      "HbA1c_level": 0.1067,
+      "blood_glucose_level": 0.1143,
+      "diabetes": 0.2649,
+      "glucose_hba1c_risk": 0.1524,
+      "comorbidity_score": 0.3302,
+      "high_glycemic_risk": 0.0491
+    },
+    "hypertension": {
+      "age": 0.2573,
+      "hypertension": 1.0,
+      "heart_disease": 0.12,
+      "bmi": 0.1481,
+      "HbA1c_level": 0.0814,
+      "blood_glucose_level": 0.0848,
+      "diabetes": 0.1957,
+      "glucose_hba1c_risk": 0.1141,
+      "comorbidity_score": 0.8291,
+      "high_glycemic_risk": 0.0381
+    },
+    "heart_disease": {
+      "age": 0.2384,
+      "hypertension": 0.12,
+      "heart_disease": 1.0,
+      "bmi": 0.0614,
+      "HbA1c_level": 0.0681,
+      "blood_glucose_level": 0.0708,
+      "diabetes": 0.1707,
+      "glucose_hba1c_risk": 0.0962,
+      "comorbidity_score": 0.6545,
+      "high_glycemic_risk": 0.0304
+    },
+    "bmi": {
+      "age": 0.3448,
+      "hypertension": 0.1481,
+      "heart_disease": 0.0614,
+      "bmi": 1.0,
+      "HbA1c_level": 0.0844,
+      "blood_glucose_level": 0.0926,
+      "diabetes": 0.215,
+      "glucose_hba1c_risk": 0.1221,
+      "comorbidity_score": 0.1474,
+      "high_glycemic_risk": 0.0402
+    },
+    "HbA1c_level": {
+      "age": 0.1067,
+      "hypertension": 0.0814,
+      "heart_disease": 0.0681,
+      "bmi": 0.0844,
+      "HbA1c_level": 1.0,
+      "blood_glucose_level": 0.1717,
+      "diabetes": 0.4064,
+      "glucose_hba1c_risk": 0.63,
+      "comorbidity_score": 0.1004,
+      "high_glycemic_risk": 0.2505
+    },
+    "blood_glucose_level": {
+      "age": 0.1143,
+      "hypertension": 0.0848,
+      "heart_disease": 0.0708,
+      "bmi": 0.0926,
+      "HbA1c_level": 0.1717,
+      "blood_glucose_level": 1.0,
+      "diabetes": 0.4244,
+      "glucose_hba1c_risk": 0.857,
+      "comorbidity_score": 0.1045,
+      "high_glycemic_risk": 0.6518
+    },
+    "diabetes": {
+      "age": 0.2649,
+      "hypertension": 0.1957,
+      "heart_disease": 0.1707,
+      "bmi": 0.215,
+      "HbA1c_level": 0.4064,
+      "blood_glucose_level": 0.4244,
+      "diabetes": 1.0,
+      "glucose_hba1c_risk": 0.5699,
+      "comorbidity_score": 0.2452,
+      "high_glycemic_risk": 0.1917
+    },
+    "glucose_hba1c_risk": {
+      "age": 0.1524,
+      "hypertension": 0.1141,
+      "heart_disease": 0.0962,
+      "bmi": 0.1221,
+      "HbA1c_level": 0.63,
+      "blood_glucose_level": 0.857,
+      "diabetes": 0.5699,
+      "glucose_hba1c_risk": 1.0,
+      "comorbidity_score": 0.1411,
+      "high_glycemic_risk": 0.5771
+    },
+    "comorbidity_score": {
+      "age": 0.3302,
+      "hypertension": 0.8291,
+      "heart_disease": 0.6545,
+      "bmi": 0.1474,
+      "HbA1c_level": 0.1004,
+      "blood_glucose_level": 0.1045,
+      "diabetes": 0.2452,
+      "glucose_hba1c_risk": 0.1411,
+      "comorbidity_score": 1.0,
+      "high_glycemic_risk": 0.0461
+    },
+    "high_glycemic_risk": {
+      "age": 0.0491,
+      "hypertension": 0.0381,
+      "heart_disease": 0.0304,
+      "bmi": 0.0402,
+      "HbA1c_level": 0.2505,
+      "blood_glucose_level": 0.6518,
+      "diabetes": 0.1917,
+      "glucose_hba1c_risk": 0.5771,
+      "comorbidity_score": 0.0461,
+      "high_glycemic_risk": 1.0
+    }
+  },
+  "feature_stats": {
+    "age": {
+      "overall_mean": 41.8,
+      "overall_std": 22.46,
+      "non_diabetic_mean": 39.95,
+      "diabetic_mean": 60.93,
+      "min": 0.08,
+      "max": 80.0
+    },
+    "bmi": {
+      "overall_mean": 27.32,
+      "overall_std": 6.77,
+      "non_diabetic_mean": 26.87,
+      "diabetic_mean": 32.0,
+      "min": 10.01,
+      "max": 95.69
+    },
+    "HbA1c_level": {
+      "overall_mean": 5.53,
+      "overall_std": 1.07,
+      "non_diabetic_mean": 5.4,
+      "diabetic_mean": 6.93,
+      "min": 3.5,
+      "max": 9.0
+    },
+    "blood_glucose_level": {
+      "overall_mean": 138.22,
+      "overall_std": 40.91,
+      "non_diabetic_mean": 132.82,
+      "diabetic_mean": 194.03,
+      "min": 80.0,
+      "max": 300.0
+    },
+    "glucose_hba1c_risk": {
+      "overall_mean": 7.72,
+      "overall_std": 3.13,
+      "non_diabetic_mean": 7.17,
+      "diabetic_mean": 13.45,
+      "min": 2.8,
+      "max": 27.0
+    }
+  },
+  "gender_breakdown": {
+    "0": {
+      "Female": 51714,
+      "Male": 35932
+    },
+    "1": {
+      "Female": 4447,
+      "Male": 4035
+    }
+  },
+  "smoking_breakdown": {
+    "0": {
+      "current": 8249,
+      "never": 31058,
+      "no_info": 31436,
+      "past_smoker": 16903
+    },
+    "1": {
+      "current": 948,
+      "never": 3337,
+      "no_info": 1445,
+      "past_smoker": 2752
+    }
+  },
+  "bmi_cat_breakdown": {
+    "0": {
+      "Normal": 21342,
+      "Obese": 19292,
+      "Overweight": 38587,
+      "Underweight": 8425
+    },
+    "1": {
+      "Normal": 863,
+      "Obese": 4232,
+      "Overweight": 3323,
+      "Underweight": 64
+    }
+  }
+}
